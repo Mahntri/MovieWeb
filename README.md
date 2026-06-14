@@ -39,7 +39,11 @@ Mở Terminal (hoặc Command Prompt, Git Bash) trên máy tính và chạy các
 ```bash
 git clone [https://github.com/Mahntri/MovieWeb.git](https://github.com/Mahntri/MovieWeb.git)
 cd MovieWeb
-4. Cài đặt và Cấu hình Backend
+
+---
+
+## 4. Cài đặt và Cấu hình Backend
+
 Bước 4.1: Di chuyển vào thư mục backend và cài đặt thư viện
 Bash
 cd be
@@ -56,7 +60,9 @@ Bash
 npm run dev
 Backend sẽ khởi chạy tại cổng 5000 (http://localhost:5000).
 
-5. Cài đặt và Cấu hình Frontend
+---
+
+## 5. Cài đặt và Cấu hình Frontend
 Mở một cửa sổ Terminal mới (giữ Terminal của backend tiếp tục chạy), từ thư mục gốc của dự án MovieWeb, di chuyển vào thư mục fe:
 
 Bước 5.1: Di chuyển và cài đặt thư viện
@@ -68,8 +74,11 @@ Bash
 npm run dev
 Frontend sẽ khởi chạy thành công (thường là tại http://localhost:5173).
 
-6. Hướng dẫn sử dụng & Các tính năng chính
-6.1. Giao diện Người dùng (Client)
+---
+
+## 6. Hướng dẫn sử dụng & Các tính năng chính
+
+### 6.1. Giao diện Người dùng (Client)
 Trang chủ: Hiển thị danh sách phim mới, phim xem nhiều, hot banner đề xuất.
 
 Tìm kiếm & Lọc: Tìm kiếm phim theo tên, lọc phim theo Thể loại, Năm phát hành.
@@ -80,7 +89,7 @@ Trình phát phim (Player): Trình phát video mượt mà, hỗ trợ chuyển 
 
 Cá nhân: Đăng ký, Đăng nhập và Lưu lại danh sách phim yêu thích.
 
-6.2. Giao diện Quản trị (Admin Dashboard)
+### 6.2. Giao diện Quản trị (Admin Dashboard)
 Quản lý Phim: Thêm, sửa, xóa phim, cập nhật các tập phim và link video.
 
 Quản lý Thể loại: Quản lý các phân loại phim (Hành động, Tình cảm...).
