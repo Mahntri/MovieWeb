@@ -218,10 +218,4 @@ MovieWeb
 
 ---
 
-# Tác Giả
-
-MovieWeb được phát triển nhằm phục vụ nhu cầu học tập, nghiên cứu và xây dựng hệ thống xem phim trực tuyến hiện đại bằng React, Node.js và MongoDB.
-
----
-
-Nếu dự án hữu ích, hãy để lại một Star trên GitHub để ủng hộ dự án.
+Chúc bạn cài đặt và sử dụng phần mềm hiệu quả!
