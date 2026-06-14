@@ -1,99 +1,227 @@
-# Hệ Thống Website Xem Phim Trực Tuyến (MovieWeb)
+# MovieWeb - Hệ Thống Website Xem Phim Trực Tuyến
 
-Dự án là một hệ thống website xem phim trực tuyến hiện đại, cho phép người dùng tìm kiếm, xem phim chất lượng cao, quản lý danh sách yêu thích và bình luận. Hệ thống cũng tích hợp trang quản trị (Admin) dành cho người quản lý để cập nhật phim, thể loại và người dùng.
+MovieWeb là hệ thống website xem phim trực tuyến hiện đại, cho phép người dùng tìm kiếm, xem phim chất lượng cao, quản lý danh sách yêu thích và tham gia bình luận. Hệ thống cũng cung cấp trang quản trị (Admin Dashboard) giúp quản lý phim, thể loại và người dùng một cách dễ dàng.
 
-* **Backend:** Node.js, Express, MongoDB
-* **Frontend:** React (Vite), Zustand, Tailwind CSS, Axios
+## Công Nghệ Sử Dụng
 
----
+### Backend
 
-## 1. Yêu cầu hệ thống
+* Node.js
+* Express.js
+* MongoDB
+* JWT Authentication
 
-### 1.1. Yêu cầu phần cứng
-* **CPU:** Dual-core 2.0 GHz trở lên.
-* **RAM:** Tối thiểu 4GB (Khuyến nghị 8GB để khởi chạy mượt mà cả Backend, Frontend và Database cùng lúc).
-* **Ổ cứng:** Còn trống tối thiểu 5GB để chứa mã nguồn, các thư viện (`node_modules`).
+### Frontend
 
-### 1.2. Yêu cầu phần mềm
-* **Hệ điều hành:** Windows, macOS, hoặc Linux.
-* **Node.js:** Phiên bản 18.x trở lên.
-* **Cơ sở dữ liệu:** MongoDB (hoặc PostgreSQL tùy thuộc vào cấu hình của bạn).
-* **Công cụ quản lý phiên bản:** Git.
-* **Trình duyệt web:** Google Chrome, Edge, Firefox.
-* **IDE/Text Editor:** Visual Studio Code.
+* React (Vite)
+* Zustand
+* Tailwind CSS
+* Axios
 
 ---
 
-## 2. Cài đặt môi trường
+# Yêu Cầu Hệ Thống
 
-1. **Cài đặt Node.js:** Tải và cài đặt tại [Node.js Official Website](https://nodejs.org/).
-2. **Cài đặt Git:** Tải và cài đặt tại [Git Official Website](https://git-scm.com/).
-3. **Cài đặt Database:** Khởi chạy MongoDB Local hoặc chuẩn bị chuỗi kết nối MongoDB Atlas.
+## 1. Yêu Cầu Phần Cứng
+
+| Thành phần | Yêu cầu                         |
+| ---------- | ------------------------------- |
+| CPU        | Dual-core 2.0 GHz trở lên       |
+| RAM        | Tối thiểu 4GB (Khuyến nghị 8GB) |
+| Ổ cứng     | Tối thiểu 5GB dung lượng trống  |
+
+## 2. Yêu Cầu Phần Mềm
+
+* Windows, macOS hoặc Linux
+* Node.js 18.x trở lên (khuyến nghị phiên bản LTS mới nhất)
+* MongoDB 4.x trở lên hoặc MongoDB Atlas
+* Git
+* Google Chrome, Firefox hoặc Microsoft Edge
+* Visual Studio Code (khuyến nghị)
 
 ---
 
-## 3. Bản sao dự án (Clone) từ GitHub
+# Cài Đặt Môi Trường
 
-Mở Terminal (hoặc Command Prompt, Git Bash) trên máy tính và chạy các lệnh sau:
+## Cài Đặt Node.js
+
+Tải tại:
+
+https://nodejs.org
+
+## Cài Đặt MongoDB
+
+Có thể sử dụng:
+
+* MongoDB Community Server (Local)
+* MongoDB Atlas (Cloud)
+
+## Cài Đặt Git
+
+Tải tại:
+
+https://git-scm.com
+
+---
+
+# Clone Dự Án
 
 ```bash
-git clone [https://github.com/Mahntri/MovieWeb.git](https://github.com/Mahntri/MovieWeb.git)
+git clone https://github.com/Mahntri/MovieWeb.git
 cd MovieWeb
+```
+
+> **Lưu ý:** Thay URL trên bằng repository GitHub của bạn nếu đã fork hoặc clone từ nguồn khác.
 
 ---
 
-## 4. Cài đặt và Cấu hình Backend
+# Cấu Hình Database
 
-Bước 4.1: Di chuyển vào thư mục backend và cài đặt thư viện
-Bash
+Khởi động MongoDB trên máy tính hoặc chuẩn bị sẵn MongoDB Atlas.
+
+Di chuyển vào thư mục Backend:
+
+```bash
 cd be
-npm install
-Bước 4.2: Cấu hình biến môi trường
-Tạo một file .env nằm trong thư mục be và cấu hình các thông số cần thiết:
+```
 
-Đoạn mã
+Tạo file môi trường:
+
+```bash
+cp .env.example .env
+```
+
+Nếu chưa có `.env.example`, hãy tạo thủ công file `.env`.
+
+Cấu hình nội dung:
+
+```env
 PORT=5000
-DATABASE_URL="mongodb://localhost:27017/movieweb_db"
-JWT_SECRET="your_super_secret_jwt_key"
-Bước 4.3: Khởi chạy Backend
-Bash
-npm run dev
-Backend sẽ khởi chạy tại cổng 5000 (http://localhost:5000).
+DATABASE_URL=mongodb://localhost:27017/db_movieweb
+JWT_SECRET=your_super_secret_jwt_key
+```
 
----
+> Thay đổi `DATABASE_URL` và `JWT_SECRET` phù hợp với môi trường của bạn.
 
-## 5. Cài đặt và Cấu hình Frontend
-Mở một cửa sổ Terminal mới (giữ Terminal của backend tiếp tục chạy), từ thư mục gốc của dự án MovieWeb, di chuyển vào thư mục fe:
+Cài đặt dependencies cho Backend:
 
-Bước 5.1: Di chuyển và cài đặt thư viện
-Bash
-cd fe
+```bash
 npm install
-Bước 5.2: Khởi chạy Frontend
-Bash
-npm run dev
-Frontend sẽ khởi chạy thành công (thường là tại http://localhost:5173).
+```
 
 ---
 
-## 6. Hướng dẫn sử dụng & Các tính năng chính
+# Chạy Backend
 
-### 6.1. Giao diện Người dùng (Client)
-Trang chủ: Hiển thị danh sách phim mới, phim xem nhiều, hot banner đề xuất.
+Từ thư mục `be`:
 
-Tìm kiếm & Lọc: Tìm kiếm phim theo tên, lọc phim theo Thể loại, Năm phát hành.
+```bash
+npm run dev
+```
 
-Trang chi tiết phim: Xem thông tin phim, danh sách tập, đánh giá/bình luận.
+Backend sẽ chạy tại:
 
-Trình phát phim (Player): Trình phát video mượt mà, hỗ trợ chuyển tập nhanh.
+```text
+http://localhost:5000
+```
 
-Cá nhân: Đăng ký, Đăng nhập và Lưu lại danh sách phim yêu thích.
+---
 
-### 6.2. Giao diện Quản trị (Admin Dashboard)
-Quản lý Phim: Thêm, sửa, xóa phim, cập nhật các tập phim và link video.
+# Chạy Frontend
 
-Quản lý Thể loại: Quản lý các phân loại phim (Hành động, Tình cảm...).
+Mở Terminal mới và di chuyển tới thư mục Frontend:
 
-Quản lý Người dùng: Quản lý tài khoản và phân quyền hệ thống (Admin / User).
+```bash
+cd fe
+```
 
-Chúc bạn phát triển và vận hành ứng dụng xem phim hiệu quả!
+Cài đặt dependencies:
+
+```bash
+npm install
+```
+
+Khởi chạy ứng dụng:
+
+```bash
+npm run dev
+```
+
+Frontend sẽ chạy tại:
+
+```text
+http://localhost:5173
+```
+
+---
+
+# Hướng Dẫn Sử Dụng
+
+## Người Dùng
+
+### Đăng Ký & Đăng Nhập
+
+* Tạo tài khoản mới.
+* Đăng nhập để đồng bộ dữ liệu cá nhân.
+
+### Xem Phim
+
+* Xem phim trực tuyến chất lượng cao.
+* Tìm kiếm phim theo tên.
+* Lọc phim theo thể loại.
+
+### Tương Tác
+
+* Bình luận và đánh giá phim.
+* Thêm phim vào danh sách yêu thích (Bookmark).
+
+---
+
+## Quản Trị Viên (Admin)
+
+### Quản Lý Phim
+
+* Thêm phim mới.
+* Chỉnh sửa thông tin phim.
+* Quản lý tập phim.
+* Cập nhật nguồn video.
+
+### Quản Lý Thể Loại
+
+* Thêm, sửa, xóa thể loại phim.
+
+### Quản Lý Người Dùng
+
+* Xem danh sách người dùng.
+* Quản lý tài khoản và quyền truy cập.
+
+---
+
+# Cấu Trúc Thư Mục
+
+```text
+MovieWeb
+├── be/                 # Backend
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── middleware/
+│   └── ...
+│
+├── fe/                 # Frontend
+│   ├── src/
+│   ├── public/
+│   └── ...
+│
+└── README.md
+```
+
+---
+
+# Tác Giả
+
+MovieWeb được phát triển nhằm phục vụ nhu cầu học tập, nghiên cứu và xây dựng hệ thống xem phim trực tuyến hiện đại bằng React, Node.js và MongoDB.
+
+---
+
+Nếu dự án hữu ích, hãy để lại một Star trên GitHub để ủng hộ dự án.
